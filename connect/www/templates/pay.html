@@ -2,15 +2,9 @@
     <ion-content class="has-header">
         <h1>Payment screen</h1>
 
-        <input type="text" name="payment_method_nonce" id="payment-method-nonce" />
-
-        <div id="paypal-container"></div>
-
-        <button class="button button-block button-positive" ng-click="makePayment">
+        <button class="button button-block button-positive" ng-click="makePayment()" ng-disabled="isDisabled">
             PAY
         </button>
 
-
-        <button class="button button-block button-positive" id="buyNowBtn"> Buy Now !</button>
     </ion-content>
 </ion-view>

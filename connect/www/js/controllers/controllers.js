@@ -172,33 +172,45 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PayCtrl', function($scope, Payment) {
+        var paymentKey = "";
+        $scope.isDisabled = true;
+        var paymentData = {
+            receivers: {
+                "receiver":[{
+                    "amount":"30.00",
+                    "email":"wxbh@hack.com"},
+                    {"amount":"10.00",
+                        "email":"charity@hack.com"}
+                ]
+            },
+            returnUrl: window.location.href,
+            cancelUrl: window.location.href
+        }
 
-        var paymentDetails = {
-            actionType:"PAY",//  	#The action taken in the Pay request (that is, the PAY action)
-            "clientDetails.applicationId":"APP-80W284485P519543T",// #Standard Sandbox App ID
-            "clientDetails.ipAddress":"127.0.0.1",//     #Address from which request is sent
-            "senderEmail":"sender_email",
-            "currencyCode":"AUD",//		#The currency, e.g. US dollars
-            "receiverList.receiver(0).amount":"3.00",//     #The payment amount for the first receiver
-            "receiverList.receiver(0).email":"first_receiver_email",
-            "receiverList.receiver(1).amount":"4.00",//	#The payment amount for the second receiver
-            "receiverList.receiver(1).email":"second_receiver_email",
-            "requestEnvelope.errorLanguage":"en_US",
-            "returnUrl":"http://www.yourdomain.com/success.html",//	#For use if the consumer proceeds with payment
-            "cancelUrl":"http://www.yourdomain.com/cancel.html" //	#For use if the consumer decides not to proceed with payment
-        };
+
 
         var preparePaymentCallback = function(err, data) {
+            if(!err && data && data.payKey) {
+                //enable the pay button
+                paymentKey = data.payKey;
+                $scope.isDisabled = false;
+            } else {
+                //show error message
 
+            }
         };
 
-
         var preparePayment = function() {
-            Payment.preparePayment(paymentDetails, preparePaymentCallback);
+            Payment.preparePayment(paymentData, preparePaymentCallback);
         };
 
         preparePayment();
 
+
+
+        $scope.makePayment = function() {
+            window.location = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paymentKey;
+        }
 
 })
 ;
