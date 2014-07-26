@@ -48,6 +48,18 @@ angular.module('starter.controllers', [])
     $scope.jobs = [Job.get(1)];
 })
 
+.controller('SearchCtrl', function($scope, Job) {
+    
+})
+
+.controller('ResutlsCtrl', function($scope, Job) {
+    
+})
+
+.controller('DetailsCtrl', function($scope, Job) {
+    
+})
+
 .controller('CreateCtrl', function($scope, User, Job) {
     
     var me = User.getUser();
