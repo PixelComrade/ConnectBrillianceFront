@@ -58,8 +58,11 @@ angular.module('starter.controllers', [])
     $scope.jobs = [Job.get(1)];
 })
 
-.controller('SearchCtrl', function($scope, Job) {
-    
+.controller('SearchCtrl', function($scope, $location, Job) {
+    $scope.search = function() {
+
+        $location.path("/tab/results");
+    }
 })
 
 .controller('ResutlsCtrl', function($scope, Job) {
