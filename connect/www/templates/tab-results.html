@@ -8,10 +8,10 @@
   </div>
 </ion-header-bar>
 <ion-content padding="true">
-    <h1>Results placeholder</h1>
-  <ion-list>
-    <ion-item ng-repeat="job in jobs" type="item-text-wrap" href="#/tab/jobs/{{job.id}}">
-      {{job.id}}, {{job.jobDescription}}
-    </ion-item>
-  </ion-list>
+	<input type="text" placeholder="search" ng-model="searchField"/>
+	<ion-list>
+	  <ion-item ng-repeat="job in jobs | filter:searchField" type="item-text-wrap" href="#/tab/jobs/{{job.id}}">
+	    {{job.jobName}}, {{job.location}}
+	  </ion-item>
+	</ion-list>
 </ion-content>

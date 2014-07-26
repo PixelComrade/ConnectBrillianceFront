@@ -5,33 +5,33 @@
   <h1 class="title">Register</h1>
 </ion-header-bar>
 <ion-content padding="true">
-    <div class="list list-inset">
-        <label class="item item-input">
+    <ion-list>
+        <ion-item>
             <input type="text" placeholder="username" ng-model="newUser.AccountName"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="password" placeholder="password" ng-model="newUser.Password"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="password" placeholder="confirm password"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="first name" ng-model="newUser.FirstName"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="surname" ng-model="newUser.Surname"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="tel" placeholder="phone number" ng-model="newUser.PhoneNo"/>
-        </label>
+        </ion-item>
 
-        <label class="item item-input">
+        <ion-item>
             <input type="text" placeholder="email" ng-model="newUser.Email"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="paypal username" ng-model="newUser.PayPalAccount"/>
-        </label>
-    </div>
+        </ion-item>
+    </ion-list>
 
     <button class="button button-block button-positive" ng-click="register()">
         Register
