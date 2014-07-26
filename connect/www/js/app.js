@@ -42,6 +42,16 @@ angular.module('starter', ['ionic',
 
     // Each tab has its own nav history stack:
 
+    .state('tab.loading', {
+      url: '/loading',
+      views: {
+        'tab-loading': {
+          templateUrl: 'templates/tab-loading.html',
+          controller: 'LoadingCtrl'
+        }
+      }
+    })
+
     .state('tab.dash', {
       url: '/dash',
       views: {

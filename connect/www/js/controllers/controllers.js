@@ -1,5 +1,13 @@
 angular.module('starter.controllers', [])
 
+.controller('LoadingCtrl', function($scope, $location, $timeout) {
+
+    var delay = function() {
+        //$location.path("/tab/login");
+    }
+    $timeout(delay, 5000);
+})
+
 .controller('DashCtrl', function($scope, $location) {
     $scope.postJob = function() {
         $location.path("/tab/create");
@@ -200,8 +208,7 @@ angular.module('starter.controllers', [])
         preparePayment();
 
 
-})
-;
+});
 
 
 
