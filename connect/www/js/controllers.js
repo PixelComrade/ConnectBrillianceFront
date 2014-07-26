@@ -12,4 +12,17 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
+})
+
+.controller('AccountCtrl2', function($scope) {
+
+})
+
+.controller('LoginCtrl', function($scope) {
+//    $scope.login = {userId: "", password:""};
+//    $scope.user = null;
+
+
+
+
 });
