@@ -28,8 +28,17 @@ angular.module('starter.services.job', [])
                 console.log('getting job:' + JSON.stringify(jobs[jobId]));
                 return jobs[jobId];
             },
-            create: function(job) {
+            add: function(user, cb) {
 
+                $http.post("http://192.168.96.68/back/users/add", user).
+                    success(function(data, status) {
+                        console.log(data);
+                        cb(null, data);
+                    }).
+                    error(function(data, status) {
+                        console.log('error occurred:' + data);
+                        cb(data, null);
+                    });
             },
             update: function(job) {
 

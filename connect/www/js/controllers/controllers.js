@@ -52,6 +52,32 @@ angular.module('starter.controllers', [])
     $scope.jobs = [Job.get(1)];
 })
 
+.controller('CreateCtrl', function($scope, Job) {
+    var newJob = { "JobName": "",
+                    "Description":"",
+                    "Location": "",
+                    "CharityAmount": "",
+                    "AssignedToAmount": ""
+    };
+
+    $scope.newJob = newJob;
+
+    $scope.createJob = function() {
+        console.log("controller register clicked");
+        Job.add(newJob, addJobCallback);
+    }
+
+    var addUserCallback = function(error, data) {
+        if (!error) {
+            if (data && data.AccountName == newUser.AccountName) {
+                console.log('controller registered, logging in');
+                $location.path("/tab/dash");
+            }
+        } else {
+            console.log('controller add user failed');
+        }
+})
+
 .controller('RegisterCtrl', function($scope, User, $location) {
 
 

@@ -1,0 +1,27 @@
+<ion-view title="Create Job">
+    <ion-content has-header="true" padding="true">
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Job Name" ng-model="newJob.JobName"/>
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Description" ng-model="newJob.Description"/>
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Location"/>
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Charity Amount" ng-model="newJob.CharityAmount"/>
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Assigned To Amount" ng-model="newJob.AssignedToAmount"/>
+            </label>
+        </div>
+
+        <button class="button button-block button-positive" ng-click="create()">
+            Create
+        </button>
+    </ion-content>
+</ion-view>
+

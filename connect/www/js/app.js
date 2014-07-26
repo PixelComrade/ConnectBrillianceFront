@@ -101,6 +101,16 @@ angular.module('starter', ['ionic',
           }
       })
 
+      .state('tab.create', {
+          url: '/create',
+          views: {
+              'tab-create': {
+                  templateUrl: 'templates/tab-create.html',
+                  controller: 'CreateCtrl'
+              }
+          }
+      })
+
       .state('tab.register', {
           url: '/register',
           views: {
