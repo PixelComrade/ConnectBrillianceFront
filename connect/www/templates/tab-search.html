@@ -9,21 +9,10 @@
 </ion-header-bar>
 <ion-content padding="true">
 	<ion-list>
-		<ion-item>
-            <input type="text" placeholder="Job Name" ng-model="search.JobName"/>
-        </ion-item>
-        <ion-item>
-            <input type="text" placeholder="Description" ng-model="search.Description"/>
-        </ion-item>
-        <ion-item>
-            <input type="text" placeholder="Location" ng-model="search.location"/>
-        </ion-item>
-        <ion-item>
-            <input type="text" placeholder="Owner" ng-model="search.Owner"/>
-        </ion-item>
-    </ion-list>
 
-    <button class="button button-block button-positive" ng-click="search()">
-        Search
-    </button>
+    <input type="text" placeholder="Search" ng-model="SearchField"/>
+      <ion-item ng-repeat="job in jobs | filter:SearchField" type="item-text-wrap" href="#/tab/jobs/{{job.id}}">
+        {{job.jobName}}, {{job.location}}
+      </ion-item>
+    </ion-list>
 </ion-content>

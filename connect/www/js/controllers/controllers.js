@@ -90,6 +90,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SearchCtrl', function($scope, $location, Job) {
+    $scope.jobs = Job.searchStatus('Listed');
+    
     $scope.search = function() {
         $location.path("/tab/results");
     }
@@ -103,7 +105,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('ResutlsCtrl', function($scope, $location, Job) {
+.controller('ResultsCtrl', function($scope, $location, Job) {
     $scope.jobs = Job.searchStatus('Listed');
 
     $scope.back= function() {

@@ -4,10 +4,10 @@ angular.module('starter.services.job', [])
 
         // Some fake testing data
         var jobs = [
-            { id: 0, jobDescription: 'I need my car washed', status: 'Listed' },
-            { id: 1, jobDescription: 'I need someone to walk my dog', status: 'Completed' },
-            { id: 2, jobDescription: 'Help wanted, front lawn needs mowing', status: 'Listed' },
-            { id: 3, jobDescription: 'Baby sitter wanted', status: 'Assigned' }
+            { id: 0, jobName: 'Wash Car', jobDescription: 'I need my car washed', location: 'Sydney', status: 'Listed' },
+            { id: 1, jobName: 'Walk Dog', jobDescription: 'I need someone to walk my dog', location: 'Sydney', status: 'Completed' },
+            { id: 2, jobName: 'Mow Lawn', jobDescription: 'Help wanted, front lawn needs mowing', location: 'Melbourne', status: 'Listed' },
+            { id: 3, jobName: 'Baby Sit', jobDescription: 'Baby sitter wanted', location: 'Melbourne', status: 'Assigned' }
         ];
 
         return {
