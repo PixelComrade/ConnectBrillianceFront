@@ -14,14 +14,20 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {
 })
 
-.controller('AccountCtrl2', function($scope) {
-
-})
 
 .controller('LoginCtrl', function($scope, User) {
     $scope.login = {userId: "", password:""};
     $scope.user = null;
 
+
+
+
+})
+
+.controller('JobsCtrl', function($scope, Job) {
+    $scope.jobs = Job.searchNearBy();
+
+    //$scope.jobs = [Job.get(1)];
 
 
 

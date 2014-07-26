@@ -2,7 +2,7 @@
 
 angular.module('starter.services.user', [])
 
-    .factory('User', function() {
+    .factory('User', function($http) {
 
         // Some fake testing data
         var users = [
@@ -14,6 +14,9 @@ angular.module('starter.services.user', [])
 
         return {
             all: function() {
+
+
+
                 return users;
             },
             get: function(userId) {

@@ -8,6 +8,7 @@
 angular.module('starter', ['ionic',
                             'starter.controllers',
                             'starter.services',
+                            'starter.services.job',
                             'starter.services.user'])
 
 .run(function($ionicPlatform) {
@@ -51,24 +52,24 @@ angular.module('starter', ['ionic',
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
-    })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
-        }
-      }
-    })
+//    .state('tab.friends', {
+//      url: '/friends',
+//      views: {
+//        'tab-friends': {
+//          templateUrl: 'templates/tab-friends.html',
+//          controller: 'FriendsCtrl'
+//        }
+//      }
+//    })
+//    .state('tab.friend-detail', {
+//      url: '/friend/:friendId',
+//      views: {
+//        'tab-friends': {
+//          templateUrl: 'templates/friend-detail.html',
+//          controller: 'FriendDetailCtrl'
+//        }
+//      }
+//    })
 
     .state('tab.account', {
       url: '/account',
@@ -86,6 +87,16 @@ angular.module('starter', ['ionic',
               'tab-login': {
                   templateUrl: 'templates/tab-login.html',
                   controller: 'LoginCtrl'
+              }
+          }
+      })
+
+      .state('tab.jobs', {
+          url: '/jobs',
+          views: {
+              'tab-jobs': {
+                  templateUrl: 'templates/tab-jobs.html',
+                  controller: 'JobsCtrl'
               }
           }
       })
