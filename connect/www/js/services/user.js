@@ -23,12 +23,23 @@ angular.module('starter.services.user', [])
                 // Simple index lookup
                 return users[userId];
             },
-            create: function(user) {
-
+            add: function(user) {
+                $http.post("http://192.168.96.68/back/users/add", user).
+                    success(function(data, status) {
+                        console.log(data);
+                    }).
+                    error(function(data, status) {
+                        console.log('error occurred')
+                    });
             },
             update: function(user) {
-
-
+                $http.post("http://192.168.96.68/back/users/edit", user).
+                    success(function(data, status) {
+                        console.log(data);
+                    }).
+                    error(function(data, status) {
+                        console.log('error occurred')
+                    });
             }
 
         }

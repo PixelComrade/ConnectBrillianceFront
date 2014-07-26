@@ -101,6 +101,16 @@ angular.module('starter', ['ionic',
           }
       })
 
+      .state('tab.register', {
+          url: '/register',
+          views: {
+              'tab-register': {
+                  templateUrl: 'templates/tab-register.html',
+                  controller: 'RegisterCtrl'
+              }
+          }
+      })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/login');
 

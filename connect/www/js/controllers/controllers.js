@@ -25,10 +25,33 @@ angular.module('starter.controllers', [])
 })
 
 .controller('JobsCtrl', function($scope, Job) {
-    $scope.jobs = Job.searchNearBy();
+//    $scope.jobs = Job.searchNearBy();
 
-    //$scope.jobs = [Job.get(1)];
+    $scope.jobs = [Job.get(1)];
+})
+
+.controller('RegisterCtrl', function($scope, User) {
 
 
+    var newUser = { "AccountName": "",
+                    "Password":"",
+                    "FirstName": "",
+                    "Surname": "",
+                    "PhoneNo": "",
+                    "Email": "",
+                    "PayPalAccount": "",
+                    "SellerPoints": "",
+                    "BuyerPoints": ""
+    };
 
-});
+    $scope.newUser = newUser;
+
+    $scope.register = function() {
+        console.log("register clicked");
+        User.add(newUser);
+    }
+
+})
+
+;
+

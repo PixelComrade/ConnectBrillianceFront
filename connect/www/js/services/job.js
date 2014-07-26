@@ -12,7 +12,7 @@ angular.module('starter.services.job', [])
 
         return {
             searchNearBy: function() {
-                $http({method: "GET", url: "http://192.168.96.68/back/jobs/fetch"}).
+                $http.get("http://192.168.96.68/back/jobs/fetch").
                     success(function(data, status) {
                         console.log(data);
                     }).
