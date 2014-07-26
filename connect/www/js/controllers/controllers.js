@@ -1,20 +1,36 @@
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $location) {
-
     $scope.postJob = function() {
-
         $location.path("/tab/create");
+    }
+
+    $scope.seekJob = function() {
+        $location.path("/tab/search");
+    }
+
+    $scope.myJobs= function() {
+        $location.path("/tab/jobs");
+    }
+
+    $scope.logout= function() {
+//        $location.path("/tab/jobs");
     }
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, $location) {
+    $scope.updateUser = function() {
+        console.log("controller update user clicked");
+        User.update($scope.user);
+    }
 
+    $scope.back= function() {
+        window.history.back();
+    }
 
-        $scope.updateUser = function() {
-            console.log("controller update user clicked");
-            User.update($scope.user);
-        }
+    $scope.logout= function() {
+//        $location.path("/tab/jobs");
+    }
 })
 
 .controller('LoginCtrl', function($scope, User, $location) {
@@ -33,7 +49,6 @@ angular.module('starter.controllers', [])
         } else {
             console.log('controller: login failed');
         }
-
     }
 
     $scope.register = function() {
@@ -42,26 +57,54 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('JobsCtrl', function($scope, Job) {
+.controller('JobsCtrl', function($scope, $location, Job) {
 //    $scope.jobs = Job.searchNearBy();
-
     $scope.jobs = [Job.get(1)];
+
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+//        $location.path("/tab/jobs");
+    }
 })
 
-.controller('SearchCtrl', function($scope, Job) {
-    
+.controller('SearchCtrl', function($scope, $location, Job) {
+    $scope.search = function() {
+        $location.path("/tab/results");
+    }
+
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+//        $location.path("/tab/jobs");
+    }
 })
 
-.controller('ResutlsCtrl', function($scope, Job) {
-    
+.controller('ResutlsCtrl', function($scope, $location, Job) {
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+//        $location.path("/tab/jobs");
+    }
 })
 
-.controller('DetailsCtrl', function($scope, Job) {
-    
+.controller('DetailsCtrl', function($scope, $location, Job) {
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+//        $location.path("/tab/jobs");
+    }
 })
 
-.controller('CreateCtrl', function($scope, User, Job) {
-    
+.controller('CreateCtrl', function($scope, $location, User, Job) {
     var me = User.getUser();
 
     console.log(me);
@@ -79,11 +122,17 @@ angular.module('starter.controllers', [])
         console.log("controller register clicked");
         Job.add(newJob);
     }
+
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+//        $location.path("/tab/jobs");
+    }
 })
 
 .controller('RegisterCtrl', function($scope, User, $location) {
-
-
     var newUser = { "AccountName": "will",
                     "Password":"will",
                     "FirstName": "will",
@@ -111,7 +160,14 @@ angular.module('starter.controllers', [])
         } else {
             console.log('controller add user failed');
         }
+    }
 
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+//        $location.path("/tab/jobs");
     }
 })
 
