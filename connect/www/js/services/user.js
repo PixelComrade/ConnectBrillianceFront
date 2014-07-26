@@ -12,10 +12,14 @@ angular.module('starter.services.user', [])
         function get() {
             return loggedInUser;
         }
-
+        function logout(location) {
+            loggedInUser = '';
+            $location.path("/tab/login");
+        }
         return {
             getUser: get,
             setUser: set,
+            logoutUser: logout,
 
             get: function(userId) {
                 // Simple index lookup
