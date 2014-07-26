@@ -6,6 +6,16 @@ angular.module('starter.controllers', [])
 
         $location.path("/tab/create");
     }
+
+    $scope.seekJob = function() {
+
+        $location.path("/tab/search");
+    }
+
+    $scope.myJobs= function() {
+
+        $location.path("/tab/jobs");
+    }
 })
 
 .controller('AccountCtrl', function($scope) {
