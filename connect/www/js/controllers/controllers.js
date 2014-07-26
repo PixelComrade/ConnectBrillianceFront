@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-//        $location.path("/tab/jobs");
+        User.logout();
     }
 })
 
@@ -29,7 +29,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-//        $location.path("/tab/jobs");
+        User.logout();
     }
 })
 
@@ -66,7 +66,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-//        $location.path("/tab/jobs");
+        User.logout();
     }
 })
 
@@ -80,7 +80,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-//        $location.path("/tab/jobs");
+        User.logout();
     }
 })
 
@@ -90,7 +90,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-//        $location.path("/tab/jobs");
+        User.logout();
     }
 })
 
@@ -100,7 +100,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-//        $location.path("/tab/jobs");
+        User.logout();
     }
 })
 
@@ -128,7 +128,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-//        $location.path("/tab/jobs");
+        User.logout();
     }
 })
 
@@ -167,7 +167,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-//        $location.path("/tab/jobs");
+        User.logout();
     }
 })
 
