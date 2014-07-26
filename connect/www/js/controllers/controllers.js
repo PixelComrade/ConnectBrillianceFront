@@ -22,10 +22,11 @@ angular.module('starter.controllers', [])
 
 
 .controller('LoginCtrl', function($scope, User, $location) {
-    $scope.login = {AccountName: "", Password:""};
+    var loginData = {AccountName: "", Password:""};
+    $scope.loginData = loginData;
 
     $scope.login = function () {
-        User.login($scope.login, loginCallback);
+        User.login(loginData, loginCallback);
     }
 
     var loginCallback = function(error, data) {
@@ -55,13 +56,13 @@ angular.module('starter.controllers', [])
 .controller('RegisterCtrl', function($scope, User, $location) {
 
 
-    var newUser = { "AccountName": "",
-                    "Password":"",
-                    "FirstName": "",
-                    "Surname": "",
-                    "PhoneNo": "",
-                    "Email": "",
-                    "PayPalAccount": "",
+    var newUser = { "AccountName": "will",
+                    "Password":"will",
+                    "FirstName": "will",
+                    "Surname": "will",
+                    "PhoneNo": "0412123123",
+                    "Email": "what@mail.com",
+                    "PayPalAccount": "what@mail.com",
                     "SellerPoints": "",
                     "BuyerPoints": ""
     };
@@ -85,6 +86,5 @@ angular.module('starter.controllers', [])
 
     }
 })
-
 ;
 

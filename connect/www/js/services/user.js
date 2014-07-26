@@ -49,7 +49,12 @@ angular.module('starter.services.user', [])
                 $http.post("http://192.168.96.68/back/users/login", loginData).
                     success(function(data, status) {
                         console.log(data);
-                        cb(null, data);
+                        if(data && data.error) {
+                            console.log('error occurred')
+                            cb("error:" + data, null);
+                        } else {
+                            cb(null, data);
+                        }
                     }).
                     error(function(data, status) {
                         console.log('error occurred')
