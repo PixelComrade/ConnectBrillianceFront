@@ -64,18 +64,8 @@ angular.module('starter.controllers', [])
 
     $scope.createJob = function() {
         console.log("controller register clicked");
-        Job.add(newJob, addJobCallback);
+        Job.add(newJob);
     }
-
-    var addUserCallback = function(error, data) {
-        if (!error) {
-            if (data && data.AccountName == newUser.AccountName) {
-                console.log('controller registered, logging in');
-                $location.path("/tab/dash");
-            }
-        } else {
-            console.log('controller add user failed');
-        }
 })
 
 .controller('RegisterCtrl', function($scope, User, $location) {
