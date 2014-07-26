@@ -1,6 +1,6 @@
 
 
-angular.module('starter.services', [])
+angular.module('starter.services.user', [])
 
     .factory('User', function() {
 

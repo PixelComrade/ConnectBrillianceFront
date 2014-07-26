@@ -18,9 +18,9 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LoginCtrl', function($scope) {
-//    $scope.login = {userId: "", password:""};
-//    $scope.user = null;
+.controller('LoginCtrl', function($scope, User) {
+    $scope.login = {userId: "", password:""};
+    $scope.user = null;
 
 
 
