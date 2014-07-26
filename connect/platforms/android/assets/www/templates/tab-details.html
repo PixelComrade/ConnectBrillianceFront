@@ -1,5 +1,37 @@
-<ion-view title="Job Details">
-  <ion-content class="has-header">
-      <h1>Job Details placeholder</h1>
-  </ion-content>
-</ion-view>
+<ion-header-bar align-title="center" class="bar-positive">
+  <div class="buttons">
+    <button class="button" ng-click="back()">Back</button>
+  </div>
+  <h1 class="title">Job Details</h1>
+  <div class="buttons">
+    <button class="button" ng-click="logout()">Logout</button>
+  </div>
+</ion-header-bar>
+<ion-content padding="true">
+    <ion-list>
+        <ion-item>
+            <input type="text" placeholder="Job Name" ng-model="newJob.JobName"/>
+        </ion-item>
+        <ion-item>
+            <input type="text" placeholder="Description" ng-model="newJob.Description"/>
+        </ion-item>
+        <ion-item>
+            <input type="text" placeholder="Location" ng-model="newJob.Location"/>
+        </ion-item>
+        <ion-item>
+            <input type="text" placeholder="Owner" ng-model="newJob.Owner"/>
+        </ion-item>
+        <ion-item>
+            <input type="text" placeholder="Charity Amount" ng-model="newJob.CharityAmount"/>
+        </ion-item>
+        <ion-item>
+            <input type="text" placeholder="Assigned To Amount" ng-model="newJob.AssignedToAmount"/>
+        </ion-item>
+        <ion-item>
+            <input type="text" placeholder="Status" ng-model="newJob.Status"/>
+        </ion-item>
+        <ion-item>
+            <input type="text" placeholder="Receipt" ng-model="newJob.Receipt"/>
+        </ion-item>
+    </ion-list>
+</ion-content>

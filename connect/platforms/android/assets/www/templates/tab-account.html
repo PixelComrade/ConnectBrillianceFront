@@ -1,5 +1,42 @@
-<ion-view title="Account">
-  <ion-content class="has-header padding">
-    <h1>Account</h1>
-  </ion-content>
-</ion-view>
+<ion-header-bar align-title="center" class="bar-positive">
+  <div class="buttons" ng-click="back()">
+    <button class="button" ng-click="back()">Back</button>
+  </div>
+  <h1 class="title">Account</h1>
+  <div class="buttons">
+    <button class="button" ng-click="logout()">Logout</button>
+  </div>
+</ion-header-bar>
+<ion-content padding="true">
+	<ion-list>
+        <ion-item>
+            <input type="text" value={{user.AccountName}} ng-model="editUser.AccountName"/>
+        </ion-item>
+        <ion-item>
+            <input type="password" value={{user.password}} ng-model="editUser.Password"/>
+        </ion-item>
+        <ion-item>
+            <input type="password" value={{user.password}}/>
+        </ion-item>
+        <ion-item>
+            <input type="text" value={{user.FirstName}} ng-model="editUser.FirstName"/>
+        </ion-item>
+        <ion-item>
+            <input type="text" value={{user.Surname}} ng-model="editUser.Surname"/>
+        </ion-item>
+        <ion-item>
+            <input type="tel" value={{user.PhoneNo}} ng-model="editUser.PhoneNo"/>
+        </ion-item>
+
+        <ion-item>
+            <input type="text" value={{user.Email}} ng-model="editUser.Email"/>
+        </ion-item>
+        <ion-item>
+            <input type="text" value={{user.PayPalAccount}} ng-model="editUser.PayPalAccount"/>
+        </ion-item>
+    </ion-list>
+
+    <button class="button button-block button-positive" ng-click="updateUser()">
+        Update
+    </button>
+</ion-content>

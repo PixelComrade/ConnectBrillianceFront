@@ -196,6 +196,17 @@ angular.module('starter.controllers', [])
 
 .controller('SearchCtrl', function($scope, $location, Charity) {
     $scope.charities = Charity.listCharities();
+
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+        User.logout();
+    }
+})
+
+.controller('PayCtrl', function($scope, Payment) {
         var paymentKey = "";
         $scope.isDisabled = true;
         var paymentData = {
@@ -211,37 +222,30 @@ angular.module('starter.controllers', [])
             cancelUrl: window.location.href
         }
 
-    $scope.back= function() {
-        window.history.back();
-    }
-
-    $scope.logout= function() {
-        User.logout();
-    }
-})
+        var preparePaymentCallback = function(err, data) {
             if(!err && data && data.payKey) {
                 //enable the pay button
                 paymentKey = data.payKey;
                 $scope.isDisabled = false;
             } else {
                 //show error message
+            }
+        }
 
-.controller('PayCtrl', function($scope, Payment) {
-        var preparePaymentCallback = function(err, data) {
-
-        var preparePayment = function() {
-            Payment.preparePayment(paymentData, preparePaymentCallback);
-        };
+        Payment.preparePayment(paymentData, preparePaymentCallback);
 
 
-    var preparePayment = function() {
-        Payment.preparePayment(paymentDetails, preparePaymentCallback);
-    };
 
 
         $scope.makePayment = function() {
             window.location = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paymentKey;
+
+//            var payLocation = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paymentKey;
+//            document.querySelector('#paypal').innerHTML ="<iframe src='" + payLocation + "'></iframe>";
+
         }
+
+
 
 })
 ;
