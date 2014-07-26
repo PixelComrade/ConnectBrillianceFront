@@ -53,6 +53,22 @@ angular.module('starter.controllers', [])
     $scope.jobs = [Job.get(1)];
 })
 
+.controller('CreateCtrl', function($scope, Job) {
+    var newJob = { "JobName": "",
+                    "Description":"",
+                    "Location": "",
+                    "CharityAmount": "",
+                    "AssignedToAmount": ""
+    };
+
+    $scope.newJob = newJob;
+
+    $scope.createJob = function() {
+        console.log("controller register clicked");
+        Job.add(newJob);
+    }
+})
+
 .controller('RegisterCtrl', function($scope, User, $location) {
 
 
