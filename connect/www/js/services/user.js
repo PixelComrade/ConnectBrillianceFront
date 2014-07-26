@@ -4,7 +4,19 @@ angular.module('starter.services.user', [])
 
     .factory('User', function($http) {
 
+        var loggedInUser = {};
+
+        function set(data) {
+            loggedInUser = data;
+        }
+        function get() {
+            return loggedInUser;
+        }
+
         return {
+            getUser: get,
+            setUser: set,
+
             get: function(userId) {
                 // Simple index lookup
                 return users[userId];
