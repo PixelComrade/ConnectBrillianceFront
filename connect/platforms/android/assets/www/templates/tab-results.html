@@ -1,0 +1,10 @@
+<ion-view title="Results">
+  <ion-content class="has-header">
+      <h1>Results placeholder</h1>
+    <ion-list>
+      <ion-item ng-repeat="job in jobs" type="item-text-wrap" href="#/tab/jobs/{{job.id}}">
+        {{job.id}}, {{job.jobDescription}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
