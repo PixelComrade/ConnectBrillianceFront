@@ -86,5 +86,18 @@ angular.module('starter.controllers', [])
 
     }
 })
+
+.controller('PayCtrl', function($scope, Payment) {
+
+
+        var preparePayment = function() {
+            braintree.setup("CLIENT-TOKEN-FROM-SERVER", "paypal", {
+                container: "paypal-container",  // to specify DOM elements, use an ID, a DOM node, or a jQuery element
+                paymentMethodNonceInputField: "payment-method-nonce"
+            });
+        };
+
+        preparePayment();
+})
 ;
 

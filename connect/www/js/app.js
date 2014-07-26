@@ -9,6 +9,7 @@ angular.module('starter', ['ionic',
                             'starter.controllers',
                             'starter.services',
                             'starter.services.job',
+                            'starter.services.pay',
                             'starter.services.user'])
 
 .run(function($ionicPlatform) {
@@ -37,7 +38,7 @@ angular.module('starter', ['ionic',
     .state('tab', {
       url: "/tab",
       abstract: true,
-      templateUrl: "templates/tabs.html"
+      templateUrl: "templates/tab.html"
     })
 
     // Each tab has its own nav history stack:
@@ -51,6 +52,16 @@ angular.module('starter', ['ionic',
         }
       }
     })
+
+      .state('tab.pay', {
+          url: '/pay',
+          views: {
+              'tab-pay': {
+                  templateUrl: 'templates/pay.html',
+                  controller: 'PayCtrl'
+              }
+          }
+      })
 
 //    .state('tab.friends', {
 //      url: '/friends',
