@@ -23,13 +23,16 @@ angular.module('starter.services.user', [])
                 // Simple index lookup
                 return users[userId];
             },
-            add: function(user) {
+            add: function(user, cb) {
+
                 $http.post("http://192.168.96.68/back/users/add", user).
                     success(function(data, status) {
                         console.log(data);
+                        cb(null, data);
                     }).
                     error(function(data, status) {
-                        console.log('error occurred')
+                        console.log('error occurred:' + data);
+                        cb(data, null);
                     });
             },
             update: function(user) {
@@ -39,6 +42,18 @@ angular.module('starter.services.user', [])
                     }).
                     error(function(data, status) {
                         console.log('error occurred')
+                    });
+            },
+            login: function(loginData, cb) {
+
+                $http.post("http://192.168.96.68/back/users/login", loginData).
+                    success(function(data, status) {
+                        console.log(data);
+                        cb(null, data);
+                    }).
+                    error(function(data, status) {
+                        console.log('error occurred')
+                        cb("error:" + data, null);
                     });
             }
 

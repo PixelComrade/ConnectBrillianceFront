@@ -12,14 +12,36 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
+
+
+        $scope.updateUser = function() {
+            console.log("controller update user clicked");
+            User.update($scope.user);
+        }
 })
 
 
-.controller('LoginCtrl', function($scope, User) {
-    $scope.login = {userId: "", password:""};
-    $scope.user = null;
+.controller('LoginCtrl', function($scope, User, $location) {
+    $scope.login = {AccountName: "", Password:""};
 
+    $scope.login = function () {
+        User.login($scope.login, loginCallback);
+    }
 
+    var loginCallback = function(error, data) {
+        if(!error) {
+            $location.path("/tab/dash");
+            $scope.user = data;
+        } else {
+            console.log('controller: login failed');
+        }
+
+    }
+
+    $scope.register = function() {
+        console.log("moving to register page");
+        $location.path("/tab/register");
+    }
 
 
 })
@@ -30,7 +52,7 @@ angular.module('starter.controllers', [])
     $scope.jobs = [Job.get(1)];
 })
 
-.controller('RegisterCtrl', function($scope, User) {
+.controller('RegisterCtrl', function($scope, User, $location) {
 
 
     var newUser = { "AccountName": "",
@@ -47,10 +69,21 @@ angular.module('starter.controllers', [])
     $scope.newUser = newUser;
 
     $scope.register = function() {
-        console.log("register clicked");
-        User.add(newUser);
+        console.log("controller register clicked");
+        User.add(newUser, addUserCallback);
     }
 
+    var addUserCallback = function(error, data) {
+        if (!error) {
+            if (data && data.AccountName == newUser.AccountName) {
+                console.log('controller registered, logging in');
+                $location.path("/tab/dash");
+            }
+        } else {
+            console.log('controller add user failed');
+        }
+
+    }
 })
 
 ;
