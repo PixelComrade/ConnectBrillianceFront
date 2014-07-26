@@ -4,14 +4,14 @@ angular.module('starter.services.job', [])
 
         // Some fake testing data
         var jobs = [
-            { id: 0, jobDescription: 'I need my car washed' },
-            { id: 1, jobDescription: 'I need someone to walk my dog' },
-            { id: 2, jobDescription: 'Help wanted, front lawn needs mowing' },
-            { id: 3, jobDescription: 'Baby sitter wanted' }
+            { id: 0, jobDescription: 'I need my car washed', status: 'Listed' },
+            { id: 1, jobDescription: 'I need someone to walk my dog', status: 'Completed' },
+            { id: 2, jobDescription: 'Help wanted, front lawn needs mowing', status: 'Listed' },
+            { id: 3, jobDescription: 'Baby sitter wanted', status: 'Assigned' }
         ];
 
         return {
-            searchNearBy: function() {
+            searchStatus: function(status) {
                 $http.get("http://192.168.96.68/back/jobs/fetch").
                     success(function(data, status) {
                         console.log(data);

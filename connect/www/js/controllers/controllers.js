@@ -26,7 +26,19 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('AccountCtrl', function($scope, $location) {
+.controller('AccountCtrl', function($scope, $location, $user) {
+    var me = User.getUser();
+
+    console.log(me);
+    var editUser = { "AccountName": me['user']['AccountName'],
+                    "Password": me['user']['Password'],
+                    "FirstName": me['user']['FirstName'],
+                    "Surname": me['user']['Surname'],
+                    "PhoneNo": me['user']['PhoneNo'],
+                    "Email": me['user']['Email'],
+                    "PayPalAccount": me['user']['PayPalAccount']
+    };
+
     $scope.updateUser = function() {
         console.log("controller update user clicked");
         User.update($scope.user);
@@ -66,8 +78,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('JobsCtrl', function($scope, $location, Job) {
-//    $scope.jobs = Job.searchNearBy();
-    $scope.jobs = [Job.get(1)];
+    $scope.jobs = Job.searchStatus('Listed');
 
     $scope.back= function() {
         window.history.back();
@@ -93,6 +104,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ResutlsCtrl', function($scope, $location, Job) {
+    $scope.jobs = Job.searchStatus('Listed');
+
     $scope.back= function() {
         window.history.back();
     }

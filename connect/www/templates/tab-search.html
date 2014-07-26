@@ -8,20 +8,20 @@
   </div>
 </ion-header-bar>
 <ion-content padding="true">
-	<div class="list list-inset">
-		<label class="item item-input">
+	<ion-list>
+		<ion-item>
             <input type="text" placeholder="Job Name" ng-model="search.JobName"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="Description" ng-model="search.Description"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="Location" ng-model="search.location"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="Owner" ng-model="search.Owner"/>
-        </label>
-    </div>
+        </ion-item>
+    </ion-list>
 
     <button class="button button-block button-positive" ng-click="search()">
         Search

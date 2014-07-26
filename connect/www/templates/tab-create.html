@@ -8,23 +8,26 @@
   </div>
 </ion-header-bar>
 <ion-content padding="true">
-    <div class="list list-inset">
-        <label class="item item-input">
+    <ion-list>
+        <ion-item>
+            <input type="text" />
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="Job Name" ng-model="newJob.JobName"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="Description" ng-model="newJob.Description"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="Location" ng-model="newJob.Location"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="Charity Amount" ng-model="newJob.CharityAmount"/>
-        </label>
-        <label class="item item-input">
+        </ion-item>
+        <ion-item>
             <input type="text" placeholder="Assigned To Amount" ng-model="newJob.AssignedToAmount"/>
-        </label>
-    </div>
+        </ion-item>
+    </ion-list>
 
     <button class="button button-block button-positive" ng-click="create()">
         Create
