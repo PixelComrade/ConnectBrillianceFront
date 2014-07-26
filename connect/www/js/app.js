@@ -92,6 +92,36 @@ angular.module('starter', ['ionic',
           }
       })
 
+      .state('tab.search', {
+          url: '/search',
+          views: {
+              'tab-search': {
+                  templateUrl: 'templates/tab-search.html',
+                  controller: 'SearchCtrl'
+              }
+          }
+      })
+      
+      .state('tab.results', {
+          url: '/results',
+          views: {
+              'tab-results': {
+                  templateUrl: 'templates/tab-results.html',
+                  controller: 'ResultsCtrl'
+              }
+          }
+      })
+      
+      .state('tab.details', {
+          url: '/details',
+          views: {
+              'tab-details': {
+                  templateUrl: 'templates/tab-details.html',
+                  controller: 'DetailsCtrl'
+              }
+          }
+      })
+
       .state('tab.create', {
           url: '/create',
           views: {
