@@ -12,7 +12,7 @@ angular.module('starter.services.job', [])
 
         return {
             searchStatus: function(status) {
-                $http.get("http://192.168.96.68/back/jobs/fetch").
+                $http.get("http://192.168.96.68:8080/api/jobs/fetch").
                     success(function(data, status) {
                         console.log(data);
                     }).
@@ -30,7 +30,7 @@ angular.module('starter.services.job', [])
             },
             add: function(job) {
 
-                $http.post("http://192.168.96.68/back/jobs/add", job).
+                $http.post("http://192.168.96.68:8080/api/jobs/add", job).
                     success(function(data, status) {
                         console.log(data);
                     }).
