@@ -1,6 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, $location) {
+
+    $scope.postJob = function() {
+
+        $location.path("/tab/create");
+    }
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {
@@ -32,7 +37,8 @@ angular.module('starter.controllers', [])
     var loginCallback = function(error, data) {
         if(!error) {
             $location.path("/tab/dash");
-            $scope.user = data;
+            User.setUser(data); 
+            console.log(User.getUser());
         } else {
             console.log('controller: login failed');
         }
@@ -53,17 +59,22 @@ angular.module('starter.controllers', [])
     $scope.jobs = [Job.get(1)];
 })
 
-.controller('CreateCtrl', function($scope, Job) {
+.controller('CreateCtrl', function($scope, User, Job) {
+    
+    var me = User.getUser();
+
+    console.log(me);
     var newJob = { "JobName": "",
                     "Description":"",
                     "Location": "",
                     "CharityAmount": "",
-                    "AssignedToAmount": ""
+                    "AssignedToAmount": "",
+                    "Owner": me['user']['id']
     };
 
     $scope.newJob = newJob;
 
-    $scope.createJob = function() {
+    $scope.create = function() {
         console.log("controller register clicked");
         Job.add(newJob);
     }
@@ -91,11 +102,11 @@ angular.module('starter.controllers', [])
     }
 
     var addUserCallback = function(error, data) {
-        if (!error) {
-            if (data && data.AccountName == newUser.AccountName) {
-                console.log('controller registered, logging in');
-                $location.path("/tab/dash");
-            }
+        if(!error) {
+            console.log('controller registered, logging in');
+            User.setUser(data); 
+            console.log(User.getUser());
+            $location.path("/tab/dash");
         } else {
             console.log('controller add user failed');
         }
