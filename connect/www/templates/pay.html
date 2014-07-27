@@ -37,6 +37,10 @@
             <label>Job Status</label>
             <input type="text" ng-model="Job.status" readonly/>
         </ion-item>
+        <ion-item>
+            <label>Assigned To</label>
+            <input type="text" ng-model="Job.assignedTo" readonly/>
+        </ion-item>
     </ion-list>
     
     <button class="button button-outline button-block button-positive" ng-click="makePayment()" ng-disabled="isDisabled">

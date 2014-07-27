@@ -89,6 +89,13 @@ angular.module('starter.controllers', [])
         window.history.back();
     }
 
+    $scope.selectJob = function (index) {
+        var job = Job.get(index)
+        Job.setSelectedJob(job);
+
+        $location.path("/tab/pay");
+    }
+
     $scope.logout= function() {
         User.logoutUser();
     }
@@ -157,7 +164,7 @@ angular.module('starter.controllers', [])
     $scope.create = function() {
         console.log("controller register clicked");
         Job.add(newJob);
-        $location.path("/tab/dash");
+        $location.path("/tab/jobs");
     }
 
     $scope.back= function() {
@@ -250,7 +257,9 @@ angular.module('starter.controllers', [])
         Payment.preparePayment(paymentData, preparePaymentCallback);
 
 
-
+        $scope.back= function() {
+            window.history.back();
+        }
 
         $scope.makePayment = function() {
             window.location = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paymentKey;
@@ -269,6 +278,7 @@ angular.module('starter.controllers', [])
         $scope.Job.charityAmount = "50";
         $scope.Job.assignedToAmount = "200";
         $scope.Job.receipt = "1234";
+        $scope.Job.assignedTo = "Johnney Bravo";
 
         console.log($scope.Job);
 });

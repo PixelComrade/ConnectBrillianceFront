@@ -48,6 +48,14 @@ angular.module('starter.services.job', [])
                 $http.post("http://192.168.96.68:8080/api/jobs/add", job).
                     success(function(data, status) {
                         console.log(data);
+                        var added = { 
+                            id: jobs.length, 
+                            jobName: data['job']['JobName'], 
+                            jobDescription: data['job']['Description'], 
+                            location: data['job']['Location'], 
+                            status: data['job']['Status']
+                        };
+                        jobs.push(added);
                     }).
                     error(function(data, status) {
                         console.log('error occurred:' + data);
