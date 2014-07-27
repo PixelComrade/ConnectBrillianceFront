@@ -14,9 +14,13 @@ angular.module('starter.services.job', [])
 
         return {
             getSelectedJob: function() {
+                console.log("getting selected job:" + selectedJob);
+                console.log(selectedJob);
                 return selectedJob;
             },
             setSelectedJob: function(job){
+                console.log("setting selected job:");
+                console.log(job);
                 selectedJob = job;
             },
             searchStatus: function(status) {

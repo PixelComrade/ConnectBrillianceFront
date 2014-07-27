@@ -218,7 +218,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('PayCtrl', function($scope, Payment, User) {
+.controller('PayCtrl', function($scope, Payment, User, Job) {
         var paymentKey = "";
         $scope.isDisabled = true;
         var paymentData = {
@@ -261,6 +261,7 @@ angular.module('starter.controllers', [])
             User.logoutUser();
         }
 
+        $scope.job = Job.getSelectedJob();
 
 
 })
