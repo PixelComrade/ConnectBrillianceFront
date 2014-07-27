@@ -2,7 +2,7 @@
 
 angular.module('starter.services.user', [])
 
-    .factory('User', function($http) {
+    .factory('User', function($http, $location) {
 
         var loggedInUser = {};
 
@@ -12,7 +12,7 @@ angular.module('starter.services.user', [])
         function get() {
             return loggedInUser;
         }
-        function logout(location) {
+        function logout() {
             loggedInUser = '';
             $location.path("/tab/login");
         }
