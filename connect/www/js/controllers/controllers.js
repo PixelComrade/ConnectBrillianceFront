@@ -96,6 +96,13 @@ angular.module('starter.controllers', [])
         $location.path("/tab/results");
     }
 
+    $scope.selectJob = function (index) {
+        var job = Job.get(index)
+        Job.setSelectedJob(job);
+
+        $location.path("/tab/pay");
+    }
+
     $scope.back= function() {
         window.history.back();
     }
@@ -195,7 +202,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('SearchCtrl', function($scope, $location, Charity, User) {
+.controller('CharityCtrl', function($scope, $location, Charity, User) {
     $scope.charities = Charity.listCharities();
 
     $scope.back= function() {

@@ -10,7 +10,15 @@ angular.module('starter.services.job', [])
             { id: 3, jobName: 'Baby Sit', jobDescription: 'Baby sitter wanted', location: 'Melbourne', status: 'Assigned' }
         ];
 
+        var selectedJob = null;
+
         return {
+            getSelectedJob: function() {
+                return selectedJob;
+            },
+            setSelectedJob: function(job){
+                selectedJob = job;
+            },
             searchStatus: function(status) {
                 $http.get("http://192.168.96.68:8080/api/jobs/fetch").
                     success(function(data, status) {
