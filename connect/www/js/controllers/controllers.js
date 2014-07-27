@@ -3,12 +3,12 @@ angular.module('starter.controllers', [])
 .controller('LoadingCtrl', function($scope, $location, $timeout) {
 
     var delay = function() {
-        //$location.path("/tab/login");
+        $location.path("/tab/login");
     }
     $timeout(delay, 5000);
 })
 
-.controller('DashCtrl', function($scope, $location) {
+.controller('DashCtrl', function($scope, $location, User) {
     $scope.postJob = function() {
         $location.path("/tab/create");
     }
@@ -22,11 +22,11 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-        User.logout();
+        User.logoutUser();
     }
 })
 
-.controller('AccountCtrl', function($scope, $location, $user) {
+.controller('AccountCtrl', function($scope, $location, $user, User) {
     var me = User.getUser();
 
     console.log(me);
@@ -49,12 +49,12 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-        User.logout();
+        User.logoutUser();
     }
 })
 
 .controller('LoginCtrl', function($scope, User, $location) {
-    var loginData = {AccountName: "", Password:""};
+    var loginData = {AccountName: "will", Password:"will"};
     $scope.loginData = loginData;
 
     $scope.login = function () {
@@ -77,7 +77,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('JobsCtrl', function($scope, $location, Job) {
+.controller('JobsCtrl', function($scope, $location, Job, User) {
     $scope.jobs = Job.searchStatus('Listed');
 
     $scope.back= function() {
@@ -85,11 +85,11 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-        User.logout();
+        User.logoutUser();
     }
 })
 
-.controller('SearchCtrl', function($scope, $location, Job) {
+.controller('SearchCtrl', function($scope, $location, Job, User) {
     $scope.jobs = Job.searchStatus('Listed');
     
     $scope.search = function() {
@@ -101,11 +101,11 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-        User.logout();
+        User.logoutUser();
     }
 })
 
-.controller('ResultsCtrl', function($scope, $location, Job) {
+.controller('ResultsCtrl', function($scope, $location, Job, User) {
     $scope.jobs = Job.searchStatus('Listed');
 
     $scope.back= function() {
@@ -113,17 +113,17 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-        User.logout();
+        User.logoutUser();
     }
 })
 
-.controller('DetailsCtrl', function($scope, $location, Job) {
+.controller('DetailsCtrl', function($scope, $location, Job, User) {
     $scope.back= function() {
         window.history.back();
     }
 
     $scope.logout= function() {
-        User.logout();
+        User.logoutUser();
     }
 })
 
@@ -151,18 +151,19 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-        User.logout();
+        User.logoutUser();
     }
 })
 
 .controller('RegisterCtrl', function($scope, User, $location) {
-    var newUser = { "AccountName": "will",
-                    "Password":"will",
-                    "FirstName": "will",
-                    "Surname": "will",
-                    "PhoneNo": "0412123123",
-                    "Email": "what@mail.com",
-                    "PayPalAccount": "what@mail.com",
+    var newUser = { "AccountName": "bobbyuser",
+                    "Password":"bobby",
+                    "Confirm": "bobby",
+                    "FirstName": "Bobby",
+                    "Surname": "McGee",
+                    "PhoneNo": "0422333444",
+                    "Email": "bobby@example.com",
+                    "PayPalAccount": "bobby@example.com",
                     "SellerPoints": "",
                     "BuyerPoints": ""
     };
@@ -190,11 +191,11 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-        User.logout();
+        User.logoutUser();
     }
 })
 
-.controller('SearchCtrl', function($scope, $location, Charity) {
+.controller('SearchCtrl', function($scope, $location, Charity, User) {
     $scope.charities = Charity.listCharities();
 
     $scope.back= function() {
@@ -202,11 +203,11 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout= function() {
-        User.logout();
+        User.logoutUser();
     }
 })
 
-.controller('PayCtrl', function($scope, Payment) {
+.controller('PayCtrl', function($scope, Payment, User) {
         var paymentKey = "";
         $scope.isDisabled = true;
         var paymentData = {
@@ -243,6 +244,10 @@ angular.module('starter.controllers', [])
 //            var payLocation = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paymentKey;
 //            document.querySelector('#paypal').innerHTML ="<iframe src='" + payLocation + "'></iframe>";
 
+        }
+
+        $scope.logout= function() {
+            User.logoutUser();
         }
 
 
