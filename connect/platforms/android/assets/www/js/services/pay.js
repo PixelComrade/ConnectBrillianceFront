@@ -8,7 +8,7 @@ angular.module('starter.services.pay', [])
         return {
             preparePayment: function(paymentData, cb) {
                 console.log(paymentData);
-                $http.post  ("http://192.168.96.72:8080/api/payment/prepareForPayment", paymentData
+                $http.post  ("http://192.168.96.68:8080/api/payment/prepareForPayment", paymentData
                 ).success(function(data, status) {
                         console.log(data);
                         cb(null, data);
