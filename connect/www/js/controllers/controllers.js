@@ -96,6 +96,8 @@ angular.module('starter.controllers', [])
         $location.path("/tab/results");
     }
 
+    $scope.
+
     $scope.back= function() {
         window.history.back();
     }
@@ -194,7 +196,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('SearchCtrl', function($scope, $location, Charity) {
+.controller('CharityCtrl', function($scope, $location, Charity) {
     $scope.charities = Charity.listCharities();
 
     $scope.back= function() {
