@@ -4,6 +4,11 @@ angular.module('starter.services.user', [])
 
     .factory('User', function($http, $location) {
 
+        var points = {
+            buyer: 0,
+            seller: 0
+        };
+
         var loggedInUser = {};
 
         function set(data) {
@@ -20,6 +25,15 @@ angular.module('starter.services.user', [])
             getUser: get,
             setUser: set,
             logoutUser: logout,
+
+            getPoints: function() {
+                return points;
+            },
+
+            setPoints: function(buyer, seller) {
+                points['buyer'] += buyer;
+                points['seller'] += seller;
+            },
 
             get: function(userId) {
                 // Simple index lookup

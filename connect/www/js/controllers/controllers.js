@@ -9,6 +9,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('DashCtrl', function($scope, $location, User) {
+    $scope.prestige = User.getPoints();
+    console.log($scope.prestige);
+
     $scope.postJob = function() {
         $location.path("/tab/create");
     }
