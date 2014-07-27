@@ -12,7 +12,7 @@
 
     <input type="text" placeholder="Search" ng-model="SearchField"/>
 
-      <ion-item ng-repeat="job in jobs | filter:SearchField" type="item-text-wrap" href="void 0" ng-click="selectJob(job.id)">
+      <ion-item ng-repeat="job in jobs | filter:SearchField" type="item-text-wrap" ng-click="selectJob(job.id)">
         {{job.jobName}}, {{job.location}}
       </ion-item>
     </ion-list>
