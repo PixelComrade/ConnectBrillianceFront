@@ -1,10 +1,10 @@
 <ion-header-bar align-title="center" class="bar-positive">
   <div class="buttons" ng-click="back()">
-    <button class="button" ng-click="back()">Back</button>
+    <button class="button button-dark" ng-click="back()">Back</button>
   </div>
   <h1 class="title">Account</h1>
   <div class="buttons">
-    <button class="button" ng-click="logout()">Logout</button>
+    <button class="button button-dark" ng-click="logout()">Logout</button>
   </div>
 </ion-header-bar>
 <ion-content padding="true">
@@ -13,10 +13,10 @@
             <input type="text" value="{{user.AccountName}}" ng-model="editUser.AccountName"/>
         </ion-item>
         <ion-item>
-            <input type="password" value="{{user.password}}" ng-model="editUser.Password"/>
+            <input type="password" value="{{user.password}}" placeholder="Enter your password"/>
         </ion-item>
         <ion-item>
-            <input type="password" value="{{user.password}}"/>
+            <input type="password" value="{{user.password}}" placeholder="Confirm your password"/>
         </ion-item>
         <ion-item>
             <input type="text" value="{{user.FirstName}}" ng-model="editUser.FirstName"/>
@@ -35,7 +35,7 @@
         </ion-item>
     </ion-list>
 
-    <button class="button button-block button-positive" ng-click="updateUser()">
+    <button class="button button-outline button-block button-positive" ng-click="updateUser()">
         Update
     </button>
 </ion-content>

@@ -26,18 +26,20 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('AccountCtrl', function($scope, $location, $user, User) {
+.controller('AccountCtrl', function($scope, $location, User) {
     var me = User.getUser();
 
     console.log(me);
     var editUser = { "AccountName": me['user']['AccountName'],
-                    "Password": me['user']['Password'],
-                    "FirstName": me['user']['FirstName'],
-                    "Surname": me['user']['Surname'],
-                    "PhoneNo": me['user']['PhoneNo'],
-                    "Email": me['user']['Email'],
-                    "PayPalAccount": me['user']['PayPalAccount']
+                "Password": me['user']['Password'],
+                "FirstName": me['user']['FirstName'],
+                "Surname": me['user']['Surname'],
+                "PhoneNo": me['user']['PhoneNo'],
+                "Email": me['user']['Email'],
+                "PayPalAccount": me['user']['PayPalAccount']
     };
+
+    $scope.editUser = editUser;
 
     $scope.updateUser = function() {
         console.log("controller update user clicked");
@@ -135,14 +137,15 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CreateCtrl', function($scope, $location, User, Job) {
+
     var me = User.getUser();
 
     console.log(me);
-    var newJob = { "JobName": "",
-                    "Description":"",
-                    "Location": "",
-                    "CharityAmount": "",
-                    "AssignedToAmount": "",
+    var newJob = { "JobName": "Walking the dog",
+                    "Description":"I need help walking my dog",
+                    "Location": "Sydney City",
+                    "CharityAmount": "70",
+                    "AssignedToAmount": "30",
                     "Owner": me['user']['id']
     };
 
@@ -151,6 +154,7 @@ angular.module('starter.controllers', [])
     $scope.create = function() {
         console.log("controller register clicked");
         Job.add(newJob);
+        $location.path("/tab/dash");
     }
 
     $scope.back= function() {
