@@ -199,7 +199,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('SearchCtrl', function($scope, $location, Charity, User) {
+.controller('CharityCtrl', function($scope, $location, Charity, User) {
     $scope.charities = Charity.listCharities();
 
     $scope.back= function() {
