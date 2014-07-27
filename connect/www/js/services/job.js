@@ -2,6 +2,8 @@ angular.module('starter.services.job', [])
 
     .factory('Job', function($http) {
 
+        var currentJob = {};
+
         // Some fake testing data
         var jobs = [
             { id: 0, jobName: 'Wash Car', jobDescription: 'I need my car washed', location: 'Sydney', status: 'Listed' },
@@ -34,6 +36,7 @@ angular.module('starter.services.job', [])
                 // Simple index lookup
                 console.log('getting job id:' + jobId);
                 console.log('getting job:' + JSON.stringify(jobs[jobId]));
+                currentJob = jobs[jobId];
                 return jobs[jobId];
             },
             add: function(job) {
@@ -48,6 +51,9 @@ angular.module('starter.services.job', [])
             },
             update: function(job) {
 
+            },
+            viewJob: function() {
+                return currentJob;
             }
 
         }
