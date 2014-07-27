@@ -12,10 +12,14 @@ angular.module('starter.services.user', [])
         function get() {
             return loggedInUser;
         }
-
+        function logout(location) {
+            loggedInUser = '';
+            $location.path("/tab/login");
+        }
         return {
             getUser: get,
             setUser: set,
+            logoutUser: logout,
 
             get: function(userId) {
                 // Simple index lookup
@@ -23,7 +27,7 @@ angular.module('starter.services.user', [])
             },
             add: function(user, cb) {
 
-                $http.post("http://192.168.96.68/back/users/add", user).
+                $http.post("http://192.168.96.68:8080/api/users/add", user).
                     success(function(data, status) {
                         console.log(data);
                         cb(null, data);
@@ -44,7 +48,7 @@ angular.module('starter.services.user', [])
             },
             login: function(loginData, cb) {
 
-                $http.post("http://192.168.96.68/back/users/login", loginData).
+                $http.post("http://192.168.96.68:8080/api/users/login", loginData).
                     success(function(data, status) {
                         console.log(data);
                         if(data && data.error) {

@@ -4,11 +4,12 @@ angular.module('starter.services.pay', [])
 
     .factory('Payment', function($http) {
 
+
         return {
             preparePayment: function(paymentData, cb) {
-
-                $http.post("http://192.168.96.68/back/users/add", user).
-                    success(function(data, status) {
+                console.log(paymentData);
+                $http.post  ("http://192.168.96.68:8080/api/payment/prepareForPayment", paymentData
+                ).success(function(data, status) {
                         console.log(data);
                         cb(null, data);
                     }).
@@ -17,6 +18,5 @@ angular.module('starter.services.pay', [])
                         cb(data, null);
                     });
             }
-
         }
     });

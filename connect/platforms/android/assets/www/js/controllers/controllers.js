@@ -1,20 +1,56 @@
 angular.module('starter.controllers', [])
 
+.controller('LoadingCtrl', function($scope, $location, $timeout) {
+
+    var delay = function() {
+        //$location.path("/tab/login");
+    }
+    $timeout(delay, 5000);
+})
+
 .controller('DashCtrl', function($scope, $location) {
-
     $scope.postJob = function() {
-
         $location.path("/tab/create");
+    }
+
+    $scope.seekJob = function() {
+        $location.path("/tab/search");
+    }
+
+    $scope.myJobs= function() {
+        $location.path("/tab/jobs");
+    }
+
+    $scope.logout= function() {
+        User.logout();
     }
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, $location, $user) {
+    var me = User.getUser();
 
+    console.log(me);
+    var editUser = { "AccountName": me['user']['AccountName'],
+                    "Password": me['user']['Password'],
+                    "FirstName": me['user']['FirstName'],
+                    "Surname": me['user']['Surname'],
+                    "PhoneNo": me['user']['PhoneNo'],
+                    "Email": me['user']['Email'],
+                    "PayPalAccount": me['user']['PayPalAccount']
+    };
 
-        $scope.updateUser = function() {
-            console.log("controller update user clicked");
-            User.update($scope.user);
-        }
+    $scope.updateUser = function() {
+        console.log("controller update user clicked");
+        User.update($scope.user);
+    }
+
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+        User.logout();
+    }
 })
 
 .controller('LoginCtrl', function($scope, User, $location) {
@@ -33,7 +69,6 @@ angular.module('starter.controllers', [])
         } else {
             console.log('controller: login failed');
         }
-
     }
 
     $scope.register = function() {
@@ -42,26 +77,57 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('JobsCtrl', function($scope, Job) {
-//    $scope.jobs = Job.searchNearBy();
+.controller('JobsCtrl', function($scope, $location, Job) {
+    $scope.jobs = Job.searchStatus('Listed');
 
-    $scope.jobs = [Job.get(1)];
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+        User.logout();
+    }
 })
 
-.controller('SearchCtrl', function($scope, Job) {
+.controller('SearchCtrl', function($scope, $location, Job) {
+    $scope.jobs = Job.searchStatus('Listed');
     
+    $scope.search = function() {
+        $location.path("/tab/results");
+    }
+
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+        User.logout();
+    }
 })
 
-.controller('ResutlsCtrl', function($scope, Job) {
-    
+.controller('ResultsCtrl', function($scope, $location, Job) {
+    $scope.jobs = Job.searchStatus('Listed');
+
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+        User.logout();
+    }
 })
 
-.controller('DetailsCtrl', function($scope, Job) {
-    
+.controller('DetailsCtrl', function($scope, $location, Job) {
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+        User.logout();
+    }
 })
 
-.controller('CreateCtrl', function($scope, User, Job) {
-    
+.controller('CreateCtrl', function($scope, $location, User, Job) {
     var me = User.getUser();
 
     console.log(me);
@@ -79,11 +145,17 @@ angular.module('starter.controllers', [])
         console.log("controller register clicked");
         Job.add(newJob);
     }
+
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+        User.logout();
+    }
 })
 
 .controller('RegisterCtrl', function($scope, User, $location) {
-
-
     var newUser = { "AccountName": "will",
                     "Password":"will",
                     "FirstName": "will",
@@ -111,17 +183,79 @@ angular.module('starter.controllers', [])
         } else {
             console.log('controller add user failed');
         }
+    }
 
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+        User.logout();
+    }
+})
+
+.controller('SearchCtrl', function($scope, $location, Charity) {
+    $scope.charities = Charity.listCharities();
+
+    $scope.back= function() {
+        window.history.back();
+    }
+
+    $scope.logout= function() {
+        User.logout();
     }
 })
 
 .controller('PayCtrl', function($scope, Payment) {
+        var paymentKey = "";
+        $scope.isDisabled = true;
+        var paymentData = {
+            receivers: {
+                "receiver":[{
+                    "amount":"30.00",
+                    "email":"wxbh@hack.com"},
+                    {"amount":"10.00",
+                        "email":"charity@hack.com"}
+                ]
+            },
+            returnUrl: window.location.href,
+            cancelUrl: window.location.href
+        }
 
-        var preparePayment = function() {
+        var preparePaymentCallback = function(err, data) {
+            if(!err && data && data.payKey) {
+                //enable the pay button
+                paymentKey = data.payKey;
+                $scope.isDisabled = false;
+            } else {
+                //show error message
+            }
+        }
 
-        };
+        Payment.preparePayment(paymentData, preparePaymentCallback);
 
-        preparePayment();
+
+
+
+        $scope.makePayment = function() {
+            window.location = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paymentKey;
+
+//            var payLocation = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="+paymentKey;
+//            document.querySelector('#paypal').innerHTML ="<iframe src='" + payLocation + "'></iframe>";
+
+        }
+
+
+
 })
 ;
+
+
+
+
+
+
+
+
+
 

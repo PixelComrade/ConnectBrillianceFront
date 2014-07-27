@@ -4,15 +4,15 @@ angular.module('starter.services.job', [])
 
         // Some fake testing data
         var jobs = [
-            { id: 0, jobDescription: 'I need my car washed' },
-            { id: 1, jobDescription: 'I need someone to walk my dog' },
-            { id: 2, jobDescription: 'Help wanted, front lawn needs mowing' },
-            { id: 3, jobDescription: 'Baby sitter wanted' }
+            { id: 0, jobName: 'Wash Car', jobDescription: 'I need my car washed', location: 'Sydney', status: 'Listed' },
+            { id: 1, jobName: 'Walk Dog', jobDescription: 'I need someone to walk my dog', location: 'Sydney', status: 'Completed' },
+            { id: 2, jobName: 'Mow Lawn', jobDescription: 'Help wanted, front lawn needs mowing', location: 'Melbourne', status: 'Listed' },
+            { id: 3, jobName: 'Baby Sit', jobDescription: 'Baby sitter wanted', location: 'Melbourne', status: 'Assigned' }
         ];
 
         return {
-            searchNearBy: function() {
-                $http.get("http://192.168.96.68/back/jobs/fetch").
+            searchStatus: function(status) {
+                $http.get("http://192.168.96.68:8080/api/jobs/fetch").
                     success(function(data, status) {
                         console.log(data);
                     }).
@@ -30,7 +30,7 @@ angular.module('starter.services.job', [])
             },
             add: function(job) {
 
-                $http.post("http://192.168.96.68/back/jobs/add", job).
+                $http.post("http://192.168.96.68:8080/api/jobs/add", job).
                     success(function(data, status) {
                         console.log(data);
                     }).

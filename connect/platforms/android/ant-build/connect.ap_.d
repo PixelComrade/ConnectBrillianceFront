@@ -41,11 +41,14 @@ C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\README.m
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\css\style.css \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\img\ionic.png \
+C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\img\loading.gif \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\app.js \
+C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\cdv-plugin-paypal-mobile-sdk.js \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\controllers \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\paypal-mobile-js-helper.js \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\services \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\controllers\controllers.js \
+C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\services\charity.js \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\services\job.js \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\services\pay.js \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\js\services\user.js \
@@ -128,10 +131,12 @@ C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\plugins\
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\plugins\org.apache.cordova.device\www\device.js \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\pay.html \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-account.html \
+C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-charities.html \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-create.html \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-dash.html \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-details.html \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-jobs.html \
+C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-loading.html \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-login.html \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-register.html \
 C:\Projects\ConnectBrillianceFront\connect\platforms\android\assets\www\templates\tab-results.html \

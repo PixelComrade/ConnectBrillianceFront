@@ -1,5 +1,18 @@
-<ion-view title="Search">
-  <ion-content class="has-header">
-      <h1>Search placeholder</h1>
-  </ion-content>
-</ion-view>
+<ion-header-bar align-title="center" class="bar-positive">
+  <div class="buttons">
+    <button class="button" ng-click="back()">Back</button>
+  </div>
+  <h1 class="title">Search</h1>
+  <div class="buttons">
+    <button class="button" ng-click="logout()">Logout</button>
+  </div>
+</ion-header-bar>
+<ion-content padding="true">
+	<ion-list>
+
+    <input type="text" placeholder="Search" ng-model="SearchField"/>
+      <ion-item ng-repeat="job in jobs | filter:SearchField" type="item-text-wrap" href="#/tab/jobs/{{job.id}}">
+        {{job.jobName}}, {{job.location}}
+      </ion-item>
+    </ion-list>
+</ion-content>
