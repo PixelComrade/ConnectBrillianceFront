@@ -264,7 +264,7 @@ angular.module('starter.controllers', [])
             User.logoutUser();
         }
 
-        $scope.Job = Job.viewJob();
+        $scope.Job = Job.getSelectedJob();
         $scope.Job.owner = "Bobby";
         $scope.Job.charityAmount = "50";
         $scope.Job.assignedToAmount = "200";
