@@ -1,15 +1,51 @@
-<ion-view title="Pay">
-    <ion-content class="has-header">
-        <h1>Payment screen</h1>
+<ion-header-bar align-title="center" class="bar-positive">
+  <div class="buttons">
+    <button class="button" ng-click="back()">Back</button>
+  </div>
+  <h1 class="title">Payment</h1>
+  <div class="buttons">
+    <button class="button" ng-click="logout()">Logout</button>
+  </div>
+</ion-header-bar>
+<ion-content padding="true">
+    <ion-list>
+        <ion-item>
+            <label>Job Name</label>
+            <input type="text" value="{{Job.JobName}}" readonly/>
+        </ion-item>
+        <ion-item>
+            <label>Job Description</label>
+            <input type="text" value="{{Job.Description}}" readonly/>
+        </ion-item>
+        <ion-item>
+            <label>Job Location</label>
+            <input type="text" value="{{Job.Location}}" readonly/>
+        </ion-item>
+        <ion-item>
+            <label>Job Owner</label>
+            <input type="text" value="{{Job.Owner}}" readonly/>
+        </ion-item>
+        <ion-item>
+            <label>Charity Amount</label>
+            <input type="text" value="{{Job.CharityAmount}}" readonly/>
+        </ion-item>
+        <ion-item>
+            <label>Assigned To Amount</label>
+            <input type="text" value="{{Job.AssignedToAmount}}" readonly/>
+        </ion-item>
+        <ion-item>
+            <label>Job Status</label>
+            <input type="text" value="{{Job.Status}}" readonly/>
+        </ion-item>
+        <ion-item>
+            <label>Payment Receipt</label>
+            <input type="text" value="{{Job.Receipt}}" readonly/>
+        </ion-item>
+    </ion-list>
+    
+    <button class="button button-block button-positive" ng-click="makePayment()" ng-disabled="isDisabled">
+        PAY
+    </button>
 
-        <button class="button button-block button-positive" ng-click="makePayment()" ng-disabled="isDisabled">
-            PAY
-        </button>
-
-        <div id="paypal">
-            
-
-        </div>
-
-    </ion-content>
-</ion-view>
+    <div id="paypal"></div>
+</ion-content>
