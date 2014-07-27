@@ -9,6 +9,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('DashCtrl', function($scope, $location, User) {
+    $scope.prestige = User.getPoints();
+    console.log($scope.prestige);
+
     $scope.postJob = function() {
         $location.path("/tab/create");
     }
@@ -141,11 +144,11 @@ angular.module('starter.controllers', [])
     var me = User.getUser();
 
     console.log(me);
-    var newJob = { "JobName": "Walking the dog",
-                    "Description":"I need help walking my dog",
+    var newJob = { "JobName": "Need a website",
+                    "Description":"Our puppy shelter desperately needs a website!",
                     "Location": "Sydney City",
-                    "CharityAmount": "70",
-                    "AssignedToAmount": "30",
+                    "CharityAmount": "50",
+                    "AssignedToAmount": "200",
                     "Owner": me['user']['id']
     };
 
